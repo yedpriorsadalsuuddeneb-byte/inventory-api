@@ -20,8 +20,6 @@ def list_items():
 @app.get("/items/<int:item_id>")
 def get_item(item_id):
     item = ITEMS.get(item_id)
-    if item is None:
-        return jsonify({"error": "not found"}), 404
     return jsonify(item)
 
 
@@ -31,6 +29,7 @@ def item_total(item_id):
     if item is None:
         return jsonify({"error": "not found"}), 404
     quantity = int(request.args.get("quantity", 1))
+    unused_rate = 0.2
     return jsonify({"id": item_id, "quantity": quantity,
                     "total": calculate_total(item["price"], quantity)})
 
