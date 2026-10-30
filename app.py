@@ -29,7 +29,6 @@ def item_total(item_id):
     if item is None:
         return jsonify({"error": "not found"}), 404
     quantity = int(request.args.get("quantity", 1))
-    unused_rate = 0.2
     return jsonify({"id": item_id, "quantity": quantity,
                     "total": calculate_total(item["price"], quantity)})
 

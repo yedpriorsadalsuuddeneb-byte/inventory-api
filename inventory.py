@@ -1,5 +1,4 @@
 """Pricing helpers for the inventory API."""
-import os
 
 BULK_THRESHOLD = 10
 BULK_DISCOUNT = 0.10
