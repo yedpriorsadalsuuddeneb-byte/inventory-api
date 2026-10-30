@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inventory API - Reference</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -17,7 +17,7 @@
       <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
       <tbody>
         <tr><td>GET</td><td><code>/items</code></td><td>List all items.</td></tr>
-        <tr><td>GET</td><td><code>/items/&lt;id&gt;</code></td><td>Get one item. Unknown ids return <code>null</code> with status 200.</td></tr>
+        <tr><td>GET</td><td><code>/items/&lt;id&gt;</code></td><td>Get one item. Unknown ids return <code>{"error":"not found"}</code> with status 404.</td></tr>
         <tr><td>GET</td><td><code>/items/&lt;id&gt;/total?quantity=N</code></td><td>Order total for N units of an item.</td></tr>
       </tbody>
     </table>
@@ -25,7 +25,7 @@
     <h2>Pricing rules</h2>
     <ul>
       <li>Total = price x quantity, rounded to 2 decimals.</li>
-      <li>A 10% bulk discount applies to orders of more than 10 units.</li>
+      <li>A 10% bulk discount applies to orders of 10 or more units.</li>
     </ul>
 
     <h2>Example</h2>
