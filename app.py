@@ -19,6 +19,8 @@ def list_items():
 
 @app.get("/items/<int:item_id>")
 def get_item(item_id):
+    if item is None:
+        return jsonify({"error":"not found"}), 404
     item = ITEMS.get(item_id)
     return jsonify(item)
 
