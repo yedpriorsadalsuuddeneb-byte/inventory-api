@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventory API - Reference</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Inventory API</h1>
+    <p>Reference for the item lookup and order total endpoints.</p>
+  </header>
+  <main>
+    <h2>Endpoints</h2>
+    <table>
+      <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>GET</td><td><code>/items</code></td><td>List all items.</td></tr>
+        <tr><td>GET</td><td><code>/items/&lt;id&gt;</code></td><td>Get one item. Unknown ids return <code>null</code> with status 200.</td></tr>
+        <tr><td>GET</td><td><code>/items/&lt;id&gt;/total?quantity=N</code></td><td>Order total for N units of an item.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Pricing rules</h2>
+    <ul>
+      <li>Total = price x quantity, rounded to 2 decimals.</li>
+      <li>A 10% bulk discount applies to orders of more than 10 units.</li>
+    </ul>
+
+    <h2>Example</h2>
+    <pre><code>GET /items/2/total?quantity=10
+{"id": 2, "quantity": 10, "total": 108.0}</code></pre>
+  </main>
+  <footer>Inventory API docs - generated from the repository's docs/ folder.</footer>
+</body>
+</html>
