@@ -21,7 +21,7 @@ def list_items():
 def get_item(item_id):
     item = ITEMS.get(item_id)
     if item is None:
-        return jsonify({"error": "not found"}), 404
+        return jsonify({"error":"not found"}), 404
     return jsonify(item)
 
 
